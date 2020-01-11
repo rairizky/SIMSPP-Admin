@@ -1,0 +1,116 @@
+<div class="uk-grid-small" uk-grid>
+  <!-- list import -->
+  <div class="uk-width-3-4@m">
+    <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium">
+      <h3>Daftar Tagihan Siswa</h3>
+
+      <!-- form seacrh filter -->
+      <% if notice %>
+        <div uk-alert class="uk-alert-success">
+          <a class="uk-alert-close" uk-close></a>
+          <h3>Pesan</h3>
+          <hr>
+          <p><%= notice %></p>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div uk-alert class="uk-alert-danger">
+          <a class="uk-alert-close" uk-close></a>
+          <h3>Pesan</h3>
+          <hr>
+          <p><%= alert %></p>
+        </div>
+      <% end %>
+
+      <div class="uk-margin-small uk-margin-small" uk-grid>
+        <!-- import excel file -->
+        <div class="uk-text-left">
+          <%= form_tag import_file_path, multipart: true do %>
+            <div uk-form-custom>
+              <p class="uk-margin-remove-bottom">Import Tagihan Siswa</p>
+              <div uk-form-custom="target: true" class="uk-margin-remove-top">
+                <%= file_field_tag :file %>
+                <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+              </div>
+              <%= submit_tag "Import Excel", class: "uk-button uk-button-default" %>
+            </div>
+          <% end %>
+        </div>
+        <!-- end import -->
+      </div>
+      <div class="uk-text-right uk-margin-remove-bottom">
+        <%= form_tag(admin_home_path, :method => 'get') do %>
+          <p>
+            <%= text_field_tag :search, params[:search], placeholder: "Cari berdasarkan NIS...", class: "uk-width-1-4 uk-input uk-border-rounded" %>
+            <%= submit_tag "Cari", :name => nil, class: "uk-button uk-button-primary uk-border-rounded" %>
+          </p>
+        <% end %>
+      </div>
+      <div class="uk-overflow-auto uk-width-1-1@m uk-margin-remove-top">
+        <table class="uk-table uk-table-striped uk-table-hover">
+          <caption>*Daftar Siswa setelah berhasil di import.</caption>
+          <thead>
+          <tr>
+            <th>NIS</th>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Rayon</th>
+            <th>Tagihan</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @daftar_tagihan.each do |siswa| %>
+            <tr>
+              <td><%= siswa.nis %></td>
+              <td class="uk-text-capitalize"><%= siswa.nama %></td>
+              <td class="uk-text-uppercase"><%= siswa.kelas %></td>
+              <td class="uk-text-uppercase"><%= siswa.rayon %></td>
+              <% if siswa.tagihan > 0 %>
+                <td class="uk-text-danger">Rp. <%= number_with_delimiter(siswa.tagihan) %></td>
+              <% else %>
+                <td class="uk-text-success">Tidak ada tagihan</td>
+              <% end %>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="uk-text-right">
+        <%= will_paginate @daftar_tagihan %>
+      </div>
+      <!-- end form search filter -->
+    </div>
+  </div>
+  <!-- end list import -->
+
+  <!-- cart -->
+  <div class="uk-width-expand@m">
+    <!-- jumlah siswa -->
+    <div class="uk-margin-small uk-card-hover">
+      <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-border-rounded uk-box-shadow-medium">
+        <h3><%= fa_icon "users" %> Jumlah Siswa</h3>
+        <hr class="uk-margin-remove-top">
+        <div class="uk-flex uk-flex-center">
+          <%= pie_chart Tagihan.group(:kelas).count, width: "200px", height: "200px", messages: {empty: "No data"} %>
+        </div>
+      </div>
+    </div>
+    <!-- end jumlah siswa -->
+
+    <!-- dana diperoleh -->
+    <div class="uk-margin-small uk-card-hover">
+      <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-border-rounded uk-box-shadow-medium">
+        <h3 class="uk-margin-remove-bottom"><%= fa_icon "wallet" %> Tagihan</h3>
+        <hr class="uk-margin-remove-top">
+        <div>
+          <h3>Rp. <%= number_with_delimiter(@tagihan) %></h3>
+        </div>
+      </div>
+    </div>
+    <!-- end dana diperoleh -->
+
+  </div>
+  <!-- end cart -->
+</div>

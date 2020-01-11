@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIMSPP</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="uk-background uk-background-muted" uk-height-viewport>
+  <% if user_signed_in? %>
+    <div class="uk-background-primary uk-light" uk-navbar>
+      <div class="uk-navbar-left uk-text-large">
+        <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #menu"></a>SIM SPP
+      </div>
+    </div>
+
+    <div id="menu" uk-offcanvas="mode: push; overlay: true">
+      <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-default">
+          <li class="uk-nav-header"><a href="#">Menu</a></li>
+          <li class="uk-parent">
+            <a href="#">Parent</a>
+            <ul class="uk-nav-sub">
+              <li><a href="#">Sub item</a></li>
+              <li><a href="#">Sub item</a></li>
+            </ul>
+          </li>
+          <li class="uk-nav-header">Header</li>
+          <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
+          <li class="uk-nav-divider"></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+        </ul>
+
+      </div>
+    </div>
+  <% else %>
+    <!-- empty -->
+  <% end %>
+
+  <div class="uk-padding">
+    <%= yield %>
+  </div>
+  </body>
+</html>
