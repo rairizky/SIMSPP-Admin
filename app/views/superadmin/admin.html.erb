@@ -1,0 +1,91 @@
+<div class="uk-padding">
+  <ul class="uk-breadcrumb">
+    <li class="uk-disabled"><a>localhost</a></li>
+    <li><%= link_to 'superadmin', superadmin_home_path %></li>
+    <li class="uk-disabled"><a>admin</a></li>
+  </ul>
+  <div class="uk-card uk-card-default uk-card-body uk-padding">
+    <h3>Daftar akun Admin</h3>
+    <% if notice %>
+      <div uk-alert class="uk-alert-success">
+        <a class="uk-alert-close" uk-close></a>
+        <h3>Pesan</h3>
+        <hr>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div uk-alert class="uk-alert-danger">
+        <a class="uk-alert-close" uk-close></a>
+        <h3>Pesan</h3>
+        <hr>
+        <p><%= alert %></p>
+      </div>
+    <% end %>
+    <div class="uk-text-right">
+      <a href="#modal-admin" class="uk-button uk-button-primary" uk-toggle>Tambah Admin</a>
+    </div>
+    <table class="uk-table uk-table-hover">
+      <caption>List user admin</caption>
+      <thead>
+      <tr>
+        <th class="uk-width-small">Name</th>
+        <th>Email</th>
+        <th>#</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @daftar_admin.each do |admin| %>
+        <tr>
+          <td><%= admin.username %></td>
+          <td><%= admin.email %></td>
+          <td>
+            <%= link_to 'Hapus', superadmin_delete_account_path(admin), method: :delete, :data => {:confirm => "Ingin menghapus admin dengan email #{admin.email}?"}, class: 'uk-button uk-button-text' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+      <tbody>
+      <tr>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="uk-text-right">
+      <%= will_paginate @daftar_admin %>
+    </div>
+  </div>
+</div>
+
+<!-- modal admin -->
+<div id="modal-admin" uk-modal>
+  <div class="uk-modal-dialog uk-margin-auto-vertical">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">Tambah Admin</h2>
+    </div>
+    <div class="uk-modal-body">
+      <%= form_for @admin, :url => superadmin_add_admin_path, html: { autocomplete: "off" } do |f| %>
+        <div class="uk-margin">
+          <%= f.label :username %>
+          <%= f.text_field :username, class: 'uk-input uk-border-rounded' %>
+        </div>
+        <div class="uk-margin">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'uk-input uk-border-rounded' %>
+        </div>
+        <div class="uk-margin">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'uk-input uk-border-rounded' %>
+          <%= f.text_field :role, class: 'uk-input uk-border-rounded', value: 'admin', hidden: 'true' %>
+        </div>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+          <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+          <%= f.submit "Submit", class: 'uk-button uk-button-primary' %>
+        </div>
+      <% end %>
+      </div>
+</div>
+<!-- end modal admin -->

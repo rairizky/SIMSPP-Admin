@@ -1,4 +1,4 @@
-<div class="uk-grid-small" uk-grid>
+<div class="uk-grid-small uk-padding" uk-grid>
   <!-- list import -->
   <div class="uk-width-3-4@m">
     <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium">
@@ -34,16 +34,18 @@
                 <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
               </div>
               <%= submit_tag "Import Excel", class: "uk-button uk-button-default" %>
-            </div>
           <% end %>
+          <%= link_to 'Kosongkan', truncate_file_path, class: 'uk-button uk-button-default', method: :delete, :data => {:confirm => "Ingin mengkosongkan data?"} %>
+          </div>
         </div>
         <!-- end import -->
       </div>
+      <hr>
       <div class="uk-text-right uk-margin-remove-bottom">
         <%= form_tag(admin_home_path, :method => 'get') do %>
           <p>
             <%= text_field_tag :search, params[:search], placeholder: "Cari berdasarkan NIS...", class: "uk-width-1-4 uk-input uk-border-rounded" %>
-            <%= submit_tag "Cari", :name => nil, class: "uk-button uk-button-primary uk-border-rounded" %>
+            <%= submit_tag "Cari", :name => nil, html: { autocomplete: "off" }, class: "uk-button uk-button-primary uk-border-rounded" %>
           </p>
         <% end %>
       </div>
@@ -90,10 +92,18 @@
     <!-- jumlah siswa -->
     <div class="uk-margin-small uk-card-hover">
       <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-border-rounded uk-box-shadow-medium">
-        <h3><%= fa_icon "users" %> Jumlah Siswa</h3>
+        <h3 class="uk-margin-remove-bottom">Siswa</h3>
         <hr class="uk-margin-remove-top">
         <div class="uk-flex uk-flex-center">
           <%= pie_chart Tagihan.group(:kelas).count, width: "200px", height: "200px", messages: {empty: "No data"} %>
+        </div>
+        <br>
+        <div>
+          <% if @jumlah == 0 %>
+
+          <% else %>
+            <h4>Jumlah <%= @jumlah %> siswa.</h4>
+          <% end %>
         </div>
       </div>
     </div>
@@ -102,10 +112,10 @@
     <!-- dana diperoleh -->
     <div class="uk-margin-small uk-card-hover">
       <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-border-rounded uk-box-shadow-medium">
-        <h3 class="uk-margin-remove-bottom"><%= fa_icon "wallet" %> Tagihan</h3>
+        <h3 class="uk-margin-remove-bottom">Tagihan</h3>
         <hr class="uk-margin-remove-top">
         <div>
-          <h3>Rp. <%= number_with_delimiter(@tagihan) %></h3>
+          <h4>Rp. <%= number_with_delimiter(@tagihan) %></h4>
         </div>
       </div>
     </div>

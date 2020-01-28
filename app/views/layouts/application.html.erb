@@ -5,6 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -20,16 +23,19 @@
     <div id="menu" uk-offcanvas="mode: push; overlay: true">
       <div class="uk-offcanvas-bar">
         <ul class="uk-nav uk-nav-default">
-          <li class="uk-nav-header"><a href="#">Menu</a></li>
-          <li class="uk-parent">
-            <a href="#">Parent</a>
-            <ul class="uk-nav-sub">
-              <li><a href="#">Sub item</a></li>
-              <li><a href="#">Sub item</a></li>
-            </ul>
-          </li>
-          <li class="uk-nav-header">Header</li>
-          <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
+          <li class="uk-nav-header">Menu</li>
+            <% if current_user.role == "superadmin" %>
+            <li class="uk-parent">
+              <%= link_to 'Home', superadmin_home_path %>
+              <ul class="uk-nav-sub">
+                <li><%= link_to 'List Admin', superadmin_admin_path %></li>
+                <li><%= link_to 'list Rayon', superadmin_rayon_path %></li>
+              </ul>
+            </li>
+            <li><%= link_to 'Role', superadmin_role_path %></li>
+            <% elsif current_user.role == "admin" %>
+            <% else %>
+            <% end %>
           <li class="uk-nav-divider"></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
         </ul>
@@ -40,7 +46,7 @@
     <!-- empty -->
   <% end %>
 
-  <div class="uk-padding">
+  <div>
     <%= yield %>
   </div>
   </body>

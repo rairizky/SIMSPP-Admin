@@ -1,0 +1,83 @@
+<div class="uk-padding">
+  <ul class="uk-breadcrumb">
+    <li class="uk-disabled"><a>localhost</a></li>
+    <li><%= link_to 'superadmin', superadmin_home_path %></li>
+    <li class="uk-disabled"><a>role rayon</a></li>
+  </ul>
+  <div class="uk-flex uk-flex-center">
+    <div class="uk-card uk-card-default uk-card-body uk-padding uk-width-1-2">
+      <h3>Daftar Rayon</h3>
+      <% if notice %>
+        <div uk-alert class="uk-alert-success">
+          <a class="uk-alert-close" uk-close></a>
+          <h3>Pesan</h3>
+          <hr>
+          <p><%= notice %></p>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div uk-alert class="uk-alert-danger">
+          <a class="uk-alert-close" uk-close></a>
+          <h3>Pesan</h3>
+          <hr>
+          <p><%= alert %></p>
+        </div>
+      <% end %>
+      <div class="uk-text-right">
+        <a href="#modal-role" class="uk-button uk-button-primary" uk-toggle>Tambah Rayon</a>
+      </div>
+      <table class="uk-table uk-table-hover">
+        <caption>List Rayon</caption>
+        <thead>
+        <tr>
+          <th class="uk-width-small">Name</th>
+          <th>#</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @roles.each do |role| %>
+          <tr>
+            <td><%= role.name %></td>
+            <td>
+              <%= link_to 'Edit', superadmin_edit_role_path(role), class: 'uk-button uk-button-text' %>
+              <%= link_to 'Hapus', superadmin_delete_role_path(role), class: 'uk-button uk-button-text', method: :delete, :data => {:confirm => "Ingin menghapus role dengan nama #{role.name}?"}, class: 'uk-button uk-button-text' %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+        <tbody>
+        <tr>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="uk-text-right">
+        <%= will_paginate @roles %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal admin -->
+<div id="modal-role" uk-modal>
+  <div class="uk-modal-dialog uk-margin-auto-vertical">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">Tambah Rayon</h2>
+    </div>
+    <div class="uk-modal-body">
+      <%= form_for @role, :url => superadmin_add_role_path, html: { autocomplete: "off" } do |f| %>
+        <div class="uk-margin">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'uk-input uk-border-rounded' %>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+          <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+          <%= f.submit "Submit", class: 'uk-button uk-button-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- end modal admin -->
