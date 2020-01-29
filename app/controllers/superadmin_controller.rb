@@ -17,7 +17,7 @@ class SuperadminController < ApplicationController
     if @admin.save
       redirect_to superadmin_admin_path, notice: 'Tambah Admin sukses.'
     else
-      redirect_to superadmin_admin_path, alert: "Tidak dapat menambahkan admin."
+      redirect_to superadmin_admin_path, alert: "Akun Admin sudah ada."
     end
   end
 
@@ -41,7 +41,7 @@ class SuperadminController < ApplicationController
     if @add_rayon.save
       redirect_to superadmin_rayon_path, notice: "Tambah Rayon success."
     else
-      redirect_to superadmin_rayon_path, alert: "Tidak dapat menambahkan Rayon."
+      redirect_to superadmin_rayon_path, alert: "Akun Rayon sudah ada."
     end
   end
 
@@ -78,7 +78,7 @@ class SuperadminController < ApplicationController
     if @role.update(role_params)
       redirect_to superadmin_role_path, notice: "Update Rayon success."
     else
-      redirect_to superadmin_role_path, alert: "Gagal mengupdate Rayon. "
+      redirect_to superadmin_role_path, alert: "Rayon sudah ada. "
     end
   end
 

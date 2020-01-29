@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93ad5eff-f220-4121-98fd-590f982dabf9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SIM SPP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SIM SPP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/admin.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/admin.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/superadmin.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/superadmin.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/superadmin_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/superadmin_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/home.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/superadmin/admin.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/superadmin/admin.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/superadmin/edit_role.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/superadmin/edit_role.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/superadmin/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/superadmin/home.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/superadmin/rayon.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/superadmin/rayon.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/superadmin/role.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/superadmin/role.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,10 +58,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/superadmin/edit_role.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/controllers/superadmin_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
+            <state relative-caret-position="207">
+              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -137,9 +120,9 @@
         <option value="$PROJECT_DIR$/app/views/superadmin/rayon.html.erb" />
         <option value="$PROJECT_DIR$/app/views/superadmin/admin.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/superadmin_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/superadmin/edit_role.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/superadmin_controller.rb" />
       </list>
     </option>
   </component>
@@ -177,6 +160,12 @@
               <item name="SIM SPP" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SIM SPP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIM SPP" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SIM SPP" type="b2602c69:ProjectViewProjectNode" />
@@ -399,12 +388,12 @@
       <workItem from="1580174547908" duration="6649000" />
       <workItem from="1580198962632" duration="1276000" />
       <workItem from="1580212424426" duration="566000" />
-      <workItem from="1580299125450" duration="5926000" />
+      <workItem from="1580299125450" duration="6433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111098000" />
+    <option name="totallyTimeSpent" value="111605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="727" extended-state="0" />
@@ -587,27 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/role.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rayon.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/sessions/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -726,13 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/superadmin_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/superadmin/rayon.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -751,6 +712,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/role.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rayon.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/superadmin_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
         </state>
       </provider>
     </entry>
