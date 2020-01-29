@@ -1,8 +1,8 @@
 <div class="uk-padding">
   <ul class="uk-breadcrumb">
     <li class="uk-disabled"><a>localhost</a></li>
-    <li><%= link_to 'superadmin', superadmin_home_path %></li>
-    <li><%= link_to 'role', superadmin_role_path %></li>
+    <li><%= link_to 'superadmin', superadmin_home_path, method: :get %></li>
+    <li><%= link_to 'role', superadmin_role_path, method: :get %></li>
     <li class="uk-disabled"><a>edit</a></li>
   </ul>
   <div class="uk-flex uk-flex-center">
@@ -13,7 +13,7 @@
           <%= f.text_field :name, class: 'uk-input uk-border-rounded' %>
         </div>
         <div class="uk-modal-footer uk-text-right">
-          <%= link_to 'Cancel', superadmin_role_path, class: 'uk-button uk-button-default uk-modal-close' %>
+          <%= link_to 'Cancel', superadmin_role_path, class: 'uk-button uk-button-default uk-modal-close', method: :get %>
           <%= f.submit class: 'uk-button uk-button-primary' %>
         </div>
       <% end %>

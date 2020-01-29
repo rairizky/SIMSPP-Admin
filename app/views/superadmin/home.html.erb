@@ -43,7 +43,7 @@
           <div class="uk-card-body">
             <h3 class="uk-card-title">Admin</h3>
             <p>Tambah akun admin untuk melakukan import data tagihan.</p>
-            <%= link_to 'Lihat Data', superadmin_admin_path, class: 'uk-button uk-button-default uk-width-1-1' %>
+            <%= link_to 'Lihat Data', superadmin_admin_path, class: 'uk-button uk-button-default uk-width-1-1', method: :get %>
           </div>
         </div>
       </div>
@@ -57,12 +57,11 @@
           <div class="uk-card-body">
             <h3 class="uk-card-title">Rayon</h3>
             <p>Tambah akun rayon untuk melakukan pengecekan tagihan langsung pada Aplikasi.</p>
-            <%= link_to 'Lihat Data', superadmin_rayon_path, class: 'uk-button uk-button-default uk-width-1-1' %>
+            <%= link_to 'Lihat Data', superadmin_rayon_path, id: 'goto-rayon', class: 'uk-button uk-button-default uk-width-1-1', method: :get %>
           </div>
         </div>
       </div>
     </div>
   </div>
   <!-- end rayon -->
-</div>
 </div>

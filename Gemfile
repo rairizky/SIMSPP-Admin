@@ -36,6 +36,8 @@ gem 'groupdate'
 gem 'will_paginate', '~> 3.1.0'
 gem "rails-uikit", git: 'git://github.com/nicbet/rails-uikit.git'
 gem 'activestorage-validator'
+gem 'jquery-rails'
+gem 'jquery-datatables'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

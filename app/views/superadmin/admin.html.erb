@@ -26,7 +26,8 @@
     <div class="uk-text-right">
       <a href="#modal-admin" class="uk-button uk-button-primary" uk-toggle>Tambah Admin</a>
     </div>
-    <table class="uk-table uk-table-hover">
+    <hr>
+    <table id="addadmin-table" class="uk-table uk-table-hover">
       <caption>List user admin</caption>
       <thead>
       <tr>
@@ -41,7 +42,7 @@
           <td><%= admin.username %></td>
           <td><%= admin.email %></td>
           <td>
-            <%= link_to 'Hapus', superadmin_delete_account_path(admin), method: :delete, :data => {:confirm => "Ingin menghapus admin dengan email #{admin.email}?"}, class: 'uk-button uk-button-text' %>
+            <%= link_to 'Hapus', superadmin_delete_account_admin_path(admin), method: :delete, :data => {:confirm => "Ingin menghapus admin dengan email #{admin.email}?"}, class: 'uk-button uk-button-text' %>
           </td>
         </tr>
       <% end %>
@@ -52,9 +53,6 @@
       </tr>
       </tbody>
     </table>
-    <div class="uk-text-right">
-      <%= will_paginate @daftar_admin %>
-    </div>
   </div>
 </div>
 

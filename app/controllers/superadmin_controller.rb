@@ -7,8 +7,9 @@ class SuperadminController < ApplicationController
 
   def admin
     has_role
-    @daftar_admin = User.paginate(page: params[:page], per_page: 5).where(role: 'admin')
+    @daftar_admin = User.all.where(role: 'admin')
     @admin = User.new
+
   end
 
   def add_admin
@@ -31,7 +32,7 @@ class SuperadminController < ApplicationController
 
   def rayon
     has_role
-    @daftar_rayon = User.paginate(page: params[:page], per_page: 5).where(role: 'rayon')
+    @daftar_rayon = User.all.where(role: 'rayon')
     @rayon = User.new
   end
 
@@ -44,9 +45,18 @@ class SuperadminController < ApplicationController
     end
   end
 
+  def delete_rayon
+    @account = User.find(params[:id])
+    if @account.destroy
+      redirect_to superadmin_rayon_path, notice: "Akun berhasil dihapus."
+    else
+      redirect_to superadmin_rayon_path, alert: "Akun gagal dihapus."
+    end
+  end
+
   def role
     has_role
-    @roles = Role.paginate(page: params[:page], per_page: 4).order('name ASC')
+    @roles = Role.all
     @role = Role.new
   end
 

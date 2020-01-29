@@ -26,13 +26,13 @@
           <li class="uk-nav-header">Menu</li>
             <% if current_user.role == "superadmin" %>
             <li class="uk-parent">
-              <%= link_to 'Home', superadmin_home_path %>
+              <%= link_to 'Home', superadmin_home_path, method: :get %>
               <ul class="uk-nav-sub">
-                <li><%= link_to 'List Admin', superadmin_admin_path %></li>
-                <li><%= link_to 'list Rayon', superadmin_rayon_path %></li>
+                <li><%= link_to 'List Admin', superadmin_admin_path, method: :get %></li>
+                <li><%= link_to 'list Rayon', superadmin_rayon_path, method: :get %></li>
               </ul>
             </li>
-            <li><%= link_to 'Role', superadmin_role_path %></li>
+            <li><%= link_to 'Role', superadmin_role_path, method: :get %></li>
             <% elsif current_user.role == "admin" %>
             <% else %>
             <% end %>

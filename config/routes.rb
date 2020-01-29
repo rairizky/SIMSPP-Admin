@@ -12,10 +12,12 @@ Rails.application.routes.draw do
 
   get 'superadmin/admin', to: 'superadmin#admin', as: 'superadmin_admin'
   post 'superadmin/home/addAdmin', to: 'superadmin#add_admin', as: 'superadmin_add_admin'
+  delete 'superadmin/home/deleteAdmin/:id', to: 'superadmin#delete_admin', as: 'superadmin_delete_account_admin'
 
   get 'superadmin/rayon', to: 'superadmin#rayon', as: 'superadmin_rayon'
   post 'superadmin/home/addRayon', to: 'superadmin#add_rayon', as: 'superadmin_add_rayon'
-  delete 'superadmin/home/delete/:id', to: 'superadmin#delete_admin', as: 'superadmin_delete_account'
+  delete 'superadmin/home/deleteRayon/:id', to: 'superadmin#delete_rayon', as: 'superadmin_delete_account_rayon'
+
 
   get 'superadmin/role', to: 'superadmin#role', as: 'superadmin_role'
   get 'superadmin/role/edit/:id', to: 'superadmin#edit_role', as: 'superadmin_edit_role'

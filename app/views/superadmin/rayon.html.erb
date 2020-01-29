@@ -26,7 +26,8 @@
     <div class="uk-text-right">
       <a href="#modal-rayon" class="uk-button uk-button-primary" uk-toggle>Tambah Rayon</a>
     </div>
-    <table class="uk-table uk-table-hover">
+    <hr>
+    <table id="addrayon-table" class="uk-table uk-table-hover">
       <caption>List user Rayon</caption>
       <thead>
       <tr>
@@ -43,7 +44,7 @@
           <td><%= rayon.email %></td>
           <td><%= rayon.rayon %></td>
           <td>
-            <%= link_to 'Hapus', superadmin_delete_account_path(rayon), method: :delete, :data => {:confirm => "Ingin menghapus rayon dengan email #{rayon.email}"}, class: 'uk-button uk-button-text' %>
+            <%= link_to 'Hapus', superadmin_delete_account_rayon_path(rayon), method: :delete, :data => {:confirm => "Ingin menghapus rayon dengan email #{rayon.email}"}, class: 'uk-button uk-button-text' %>
           </td>
         </tr>
       <% end %>
@@ -54,9 +55,6 @@
       </tr>
       </tbody>
     </table>
-    <div class="uk-text-right">
-      <%= will_paginate @daftar_rayon %>
-    </div>
   </div>
 </div>
 

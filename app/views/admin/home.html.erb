@@ -41,16 +41,8 @@
         <!-- end import -->
       </div>
       <hr>
-      <div class="uk-text-right uk-margin-remove-bottom">
-        <%= form_tag(admin_home_path, :method => 'get') do %>
-          <p>
-            <%= text_field_tag :search, params[:search], placeholder: "Cari berdasarkan NIS...", class: "uk-width-1-4 uk-input uk-border-rounded" %>
-            <%= submit_tag "Cari", :name => nil, html: { autocomplete: "off" }, class: "uk-button uk-button-primary uk-border-rounded" %>
-          </p>
-        <% end %>
-      </div>
       <div class="uk-overflow-auto uk-width-1-1@m uk-margin-remove-top">
-        <table class="uk-table uk-table-striped uk-table-hover">
+        <table id="admin-table" class="uk-table uk-table-striped uk-table-hover">
           <caption>*Daftar Siswa setelah berhasil di import.</caption>
           <thead>
           <tr>
@@ -79,9 +71,6 @@
         </table>
       </div>
       <br>
-      <div class="uk-text-right">
-        <%= will_paginate @daftar_tagihan %>
-      </div>
       <!-- end form search filter -->
     </div>
   </div>

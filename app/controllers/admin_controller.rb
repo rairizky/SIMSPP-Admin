@@ -4,14 +4,8 @@ class AdminController < ApplicationController
   def home
     has_role
 
-    if params[:search].blank?
-      @daftar_tagihan = Tagihan.paginate(page: params[:page], per_page: 10).order('nama ASC')
-    else
-      @parameter = params[:search]
-      @daftar_tagihan = Tagihan.all.where('cast(nis as text) LIKE :search', search: @parameter).paginate(page: params[:page], per_page: 10).order('nama ASC')
+    @daftar_tagihan = Tagihan.all
 
-    end
-    
     @tagihan = Tagihan.sum(:tagihan)
     @jumlah = Tagihan.all.count
   end

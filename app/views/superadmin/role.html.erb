@@ -27,11 +27,11 @@
       <div class="uk-text-right">
         <a href="#modal-role" class="uk-button uk-button-primary" uk-toggle>Tambah Rayon</a>
       </div>
-      <table class="uk-table uk-table-hover">
-        <caption>List Rayon</caption>
+      <hr>
+      <table id="role-table" class="uk-table uk-table-hover">
         <thead>
         <tr>
-          <th class="uk-width-small">Name</th>
+          <th>Name</th>
           <th>#</th>
         </tr>
         </thead>
@@ -52,9 +52,6 @@
         </tr>
         </tbody>
       </table>
-      <div class="uk-text-right">
-        <%= will_paginate @roles %>
-      </div>
     </div>
   </div>
 </div>
