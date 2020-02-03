@@ -35,7 +35,11 @@
               </div>
               <%= submit_tag "Import Excel", class: "uk-button uk-button-default" %>
           <% end %>
-          <%= link_to 'Kosongkan', truncate_file_path, class: 'uk-button uk-button-default', method: :delete, :data => {:confirm => "Ingin mengkosongkan data?"} %>
+          <% if Tagihan.all.blank? %>
+
+          <% else %>
+            <%= link_to 'Kosongkan', truncate_file_path, class: 'uk-button uk-button-default', method: :delete, :data => {:confirm => "Ingin mengkosongkan data?"} %>
+          <% end %>
           </div>
         </div>
         <!-- end import -->
