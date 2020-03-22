@@ -1,0 +1,74 @@
+<div class="uk-container uk-padding">
+  <div uk-grid>
+    <div class="uk-width-expand@m">
+      <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-large">
+        <h3>List Akun</h3>
+
+        <div class="uk-overflow-auto">
+          <div class="uk-margin uk-text-right@m">
+            <a href="#modal-add-siswa" uk-toggle class="uk-button uk-button-default uk-border-rounded uk-box-shadow-medium">
+              <%= fa_icon 'plus', text: 'Tambah Akun' %>
+            </a>
+          </div>
+
+          <table class="uk-table uk-table-striped uk-table-hover">
+            <caption>Total Akun : <%= @totalakun %> Akun.</caption>
+            <thead>
+            <tr>
+              <th class="uk-table-shrink">#</th>
+              <th>name</th>
+              <th>email</th>
+              <th>role</th>
+              <th>rayon</th>
+              <th class="uk-table-shrink">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @akun.each do |akun| %>
+                <tr>
+                  <td>•</td>
+                  <td class="uk-text-capitalize"><%= akun.name %></td>
+                  <td><%= akun.email %></td>
+                  <td class="uk-text-capitalize"><%= akun.role %></td>
+                  <td><%= akun.id_rayon %></td>
+                  <td>
+                    <a type="button"><%= fa_icon 'angle-down' %></a>
+                    <div uk-dropdown="mode: click">
+                      <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="#"><%= fa_icon 'edit' %> Edit</a></li>
+                        <li><a href="#"><%= fa_icon 'trash' %> Hapus</a></li>
+
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <ul class="uk-pagination uk-flex-right@m">
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal add siswa -->
+<div id="modal-add-siswa" uk-modal>
+  <div class="uk-modal-dialog">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">Tambah Siswa</h2>
+    </div>
+    <div class="uk-modal-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="uk-modal-footer uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+      <button class="uk-button uk-button-primary" type="button">Save</button>
+    </div>
+  </div>
+</div>
+<!-- end modal -->

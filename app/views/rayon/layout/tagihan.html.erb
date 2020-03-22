@@ -1,0 +1,39 @@
+<div class="uk-container uk-padding">
+<div uk-grid>
+  <div class="uk-width-1-1@m">
+    <div class="uk-margin">
+    </div>
+    <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-large">
+      <h3>Tagihan Siswa</h3>
+
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-striped uk-table-hover">
+          <caption>Total Siswa :  Orang.</caption>
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>NIS</th>
+            <th>Nama</th>
+            <th>Tagihan<th>
+          </tr>
+          </thead>
+          <tbody>
+            <% @tagihan.each do |tagihan| %>
+                <tr>
+                    <td><%= @no += 1 %></td>
+                    <td><%= tagihan.nis %></td>
+                    <td><%= tagihan.nama %></td>
+                    <td>Rp. <%= number_with_delimiter(tagihan.tagihan) %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="uk-pagination uk-flex-right@m">
+        <li><%= will_paginate @tagihan %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>

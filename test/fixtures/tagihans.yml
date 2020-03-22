@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nis: 1
+  nama: MyString
+  rombel: MyString
+  rayon: MyString
+  tagihan: 1
+
+two:
+  nis: 1
+  nama: MyString
+  rombel: MyString
+  rayon: MyString
+  tagihan: 1

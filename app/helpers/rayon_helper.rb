@@ -1,0 +1,2 @@
+module RayonHelper
+end

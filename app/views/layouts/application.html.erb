@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIMSPP</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <!-- nav -->
+  <% if user_signed_in? %>
+    <div class="uk-background uk-background-primary uk-light">
+      <nav uk-navbar>
+
+        <div class="uk-navbar-left">
+
+          <a href="#offcanvas-usage" uk-toggle class="uk-navbar-item uk-logo"><%= fa_icon "bars" %></a>
+          <a href="#" class="uk-navbar-item uk-active uk-logo">SIMSPP</a>
+
+          <ul class="uk-navbar-nav">
+
+          </ul>
+
+        </div>
+
+        <div class="uk-navbar-right">
+
+          <ul class="uk-navbar-nav">
+            <li>
+              <% if user_signed_in? %>
+                <a href="#"><%= fa_icon "user-circle 2x", :class => 'uk-margin-right' %><%= current_user.name  %></a>
+                <div class="uk-navbar-dropdown">
+                  <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li><%= link_to 'Profile', edit_user_registration_path %></li>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </div>
+              <% end %>
+            </li>
+          </ul>
+
+        </div>
+
+      </nav>
+    </div>
+    <!-- end nav -->
+
+    <!-- off canvas -->
+    <div id="offcanvas-usage" uk-offcanvas="mode: push; overlay: true">
+      <div class="uk-offcanvas-bar">
+
+        <ul class="uk-nav uk-nav-default">
+          <% if user_signed_in? %>
+            <% if current_user.role == "admin" %>
+              <h1><%= link_to 'Menu', admin_home_path, class: 'uk-button uk-button-text' %></h1>
+
+              <li class="uk-nav-header"><%= fa_icon 'credit-card' %> Tagihan</li>
+              <li><a href="<%= list_tagihan_path %>"><%= fa_icon 'table' %> Tagihan Siswa</a></li>
+              <hr class="uk-divider-icon">
+
+              <li class="uk-nav-header"><%= fa_icon 'user' %> Akun</li>
+              <li><a href="<%= list_akun_path %>"><%= fa_icon 'key' %> Kelola Akun</a></li>
+              <li><a href="<%= list_role_path %>"><%= fa_icon 'wrench' %> Role</a></li>
+              <li><a href="<%= list_rayon_path %>"><%= fa_icon 'suitcase' %> Rayon</a></li>
+              <hr class="uk-divider-icon">
+
+            <% elsif current_user.role == "rayon" %>
+              <h1><%= link_to 'Menu', rayon_home_path, class: 'uk-button uk-button-text' %></h1>
+              <li class="uk-nav-header"><%= fa_icon 'users' %> Siswa</li>
+              <li><a href="<%= rayon_list_siswa_path %>"><%= fa_icon 'table' %> Daftar Siswa</a></li>
+              <hr class="uk-divider-icon">
+
+              <li class="uk-nav-header"><%= fa_icon 'credit-card' %> Tagihan</li>
+              <li><a href="<%= rayon_list_tagihan_path %>"><%= fa_icon 'table' %> Tagihan Siswa</a></li>
+              <hr class="uk-divider-icon">
+            <% end %>
+          <% end %>
+        </ul>
+
+      </div>
+    </div>
+  <% else %>
+    <!-- null nav -->
+  <% end %>
+  <!-- end off canvas -->
+    <div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+class Tagihan < ApplicationRecord
+end

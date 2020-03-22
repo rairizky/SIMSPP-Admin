@@ -1,0 +1,59 @@
+<div class="uk-container uk-padding">
+  <div uk-grid>
+    <div class="uk-width-expand@m">
+      <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-large">
+        <h3>Tagihan Siswa</h3>
+
+        <div class="uk-overflow-auto">
+          <table class="uk-table uk-table-striped uk-table-hover">
+            <caption>Total Siswa : <%= @totalsiswa %> Orang.</caption>
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>NIS</th>
+              <th>Nama</th>
+              <th>Rombel</th>
+              <th>Rayon</th>
+              <th>Tagihan</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @tagihan.each do |tagihan| %>
+              <tr>
+                <td><%= @no += 1 %></td>
+                <td><%= tagihan.nis %></td>
+                <td class="uk-text-capitalize"><%= tagihan.nama %></td>
+                <td><%= tagihan.rombel %></td>
+                <td><%= tagihan.rayon %></td>
+                <td>Rp. <%= number_with_delimiter(tagihan.tagihan) %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <ul class="uk-pagination uk-flex-right@m">
+          <li><%= will_paginate @tagihan %></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="uk-width-1-3@m">
+      <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-large">
+        <h3 class="uk-margin-remove-bottom">Import Data Siswa</h3>
+        <p class="uk-margin-remove-top uk-text-meta">Import Data tagihan siswa. (*.xlxs)</p>
+
+        <!-- select file excel -->
+        <div class="uk-text-right@m" uk-margin>
+          <div uk-form-custom="target: true">
+            <input type="file">
+            <input class="uk-input uk-form-width-large uk-border-rounded" type="text" placeholder="Select file" disabled>
+          </div>
+          <button class="uk-button uk-button-primary uk-border-rounded">Submit</button>
+        </div>
+        <!-- end excel -->
+      </div>
+    </div>
+  </div>
+</div>
