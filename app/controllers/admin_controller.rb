@@ -18,7 +18,7 @@ class AdminController < ApplicationController
       if result
         redirect_to admin_home_path, notice: "Import siswa berhasil."
       else
-        redirect_to admin_home_path, alert: "Format harus .csv, .xls, .xlsx"
+        redirect_to admin_home_path, alert: "Format harus *.xlsx"
       end
     end
   end

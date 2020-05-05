@@ -11,10 +11,10 @@ class Tagihan < ApplicationRecord
         row = Hash[[header, spreadsheet.row(i)].transpose]
         tagihan = find_by_id(row["id"]) || Tagihan.new
         tagihan.attributes = row.to_hash
-        if tagihan.save
-          
-        else
-          render :home, alert: "Format excel salah."
+        begin
+          tagihan.save!
+        rescue => exception
+          alert: "#{exception}"
         end
       end
     else
