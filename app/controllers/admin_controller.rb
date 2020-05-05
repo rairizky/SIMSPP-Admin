@@ -16,11 +16,7 @@ class AdminController < ApplicationController
     else
       result = Tagihan.import(params[:file])
       if result
-        begin
-          redirect_to admin_home_path, notice: "Import siswa berhasil."
-        rescue => exception
-          redirect_to admin_home_path, alert: "Format excel tidak sesuai."
-        end
+        redirect_to admin_home_path, notice: "Import siswa berhasil."
       else
         redirect_to admin_home_path, alert: "Format harus .csv, .xls, .xlsx"
       end
