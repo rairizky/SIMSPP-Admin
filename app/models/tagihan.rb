@@ -14,7 +14,7 @@ class Tagihan < ApplicationRecord
         tagihan.save!
       end
     else
-      false
+      render :home
     end
   end
 
