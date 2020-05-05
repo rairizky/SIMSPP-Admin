@@ -1,6 +1,6 @@
 class Tagihan < ApplicationRecord
 
-  validates :nis, uniqueness: true
+  validates :nis, presence :true,uniqueness: true
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
