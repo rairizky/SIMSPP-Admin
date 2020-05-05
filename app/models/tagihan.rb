@@ -1,21 +1,17 @@
 class Tagihan < ApplicationRecord
 
-  validates :nis, presence :true,uniqueness: true
+  validates :nis, uniqueness: true
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     if spreadsheet
-      begin
-        Tagihan.destroy_all
-        header = spreadsheet.row(1)
-        (2 .. spreadsheet.last_row).map do |i|
-          row = Hash[[header, spreadsheet.row(i)].transpose]
-          tagihan = find_by_id(row["id"]) || Tagihan.new
-          tagihan.attributes = row.to_hash
-          tagihan.save!
-        end
-      rescue => exception
-        render :home, alert: "Format excel salah."
+      Tagihan.destroy_all
+      header = spreadsheet.row(1)
+      (2 .. spreadsheet.last_row).map do |i|
+        row = Hash[[header, spreadsheet.row(i)].transpose]
+        tagihan = find_by_id(row["id"]) || Tagihan.new
+        tagihan.attributes = row.to_hash
+        tagihan.save!
       end
     else
       false
